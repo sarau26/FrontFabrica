@@ -1,0 +1,13 @@
+{
+    "materia": 611,
+    "programaAcademico": "Ing Sistemas",
+    "versionPensum": 1,
+    "creditos": 2,
+    "nivelAcademico": 1,
+    "intensidadHoraria": 4,
+    "sede": "Oriente",
+    "gruposEspejo": true,
+    "validable": true,
+    "obligatorio": true,
+    "habilitable": true
+}
