@@ -1,0 +1,29 @@
+.div_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.div_menu_buttons {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    width: 45rem;
+    border: 2px solid var(--main-color);
+    padding: 80px 30px 80px 30px;
+}
+
+.menu_button {
+    background: var(--main-color);
+    border: none;
+    padding: 10px;
+    color: #fff;
+    height: 50px;
+    margin-top: 3%;
+    border-radius: 6px;
+}
+
+.menu_button:hover {
+    background: var(--hover-color)
+}
