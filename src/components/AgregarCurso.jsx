@@ -37,10 +37,12 @@ export const AgregarCurso = () => {
         navigate('/menu-jefe-departamento')
     }
 
-    const onSubmitForm = (event) => {
+    const onSubmitForm = async (event) => {
         event.preventDefault();
-        postCursos(formState, materia);
-        onResetForm();
+        const resp = await postCursos(formState, materia);
+        if(resp.ok){
+            onResetForm();
+        }
 
     }
 

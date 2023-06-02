@@ -37,7 +37,9 @@ export const ModificarCurso = () => {
   };
 
   useEffect(() => {
-    cursosCreados().then(()=>{});
+    cursosCreados()
+      .then(()=>{})
+      .catch(error => {});
   }, []);
 
   const navigate = useNavigate();
@@ -105,9 +107,8 @@ export const ModificarCurso = () => {
       {!loaded && (
 
         <div className="container-cursos-creados">
-          {cursos &&
-            cursos.map((curso, index) => (
-              <div key={index}>
+          {cursos?.map((curso, index) => (
+              <div key={index+""}>
                 <CursoItem
                   onClick={(curso) => onModifiedCurso(curso, index)}
                   btnMsg="Modificar Curso"

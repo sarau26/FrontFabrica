@@ -11,7 +11,9 @@ export const EliminarCurso = () => {
     }
 
     useEffect(() => {
-        cursosCreados().then(()=>{});
+        cursosCreados()
+            .then(()=>{})
+            .catch(error => {});
     }, []);
     useEffect(() => { }, [cursos])
 
@@ -32,8 +34,8 @@ export const EliminarCurso = () => {
     return (
         <div className="container-cursos-creados">
             {
-                cursos && cursos.map((curso, index) => (
-                    <div key={index}>
+                cursos?.map((curso, index) => (
+                    <div key={index+""}>
                         <CursoItem
                             onClick={(curso) => onDeleteCurso(curso, index)}
                             btnMsg="Eliminar Curso"

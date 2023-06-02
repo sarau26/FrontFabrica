@@ -37,7 +37,6 @@ export const DatePickers = (props) => {
       const currentValueStartDate = props.currentValue?.startDate;
     const currentValueEndDate = props.currentValue?.endDate;
      if (currentValueStartDate !== startDate || currentValueEndDate !== endDate) {
-      console.log("Entre al useEffect")
          handleDate() 
      }    
   }, [handleDate])  

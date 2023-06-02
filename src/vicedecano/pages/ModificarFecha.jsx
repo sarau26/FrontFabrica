@@ -61,7 +61,6 @@ export function Modificar() {
 
 
     const handleSubmit = () =>{
-      console.log(fechas)
       //Enviar las fechas al backend haciendo todas las validaciones...
     }
     
