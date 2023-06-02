@@ -11,7 +11,7 @@ export const EliminarCurso = () => {
     }
 
     useEffect(() => {
-        cursosCreados();
+        cursosCreados().then(()=>{});
     }, []);
     useEffect(() => { }, [cursos])
 

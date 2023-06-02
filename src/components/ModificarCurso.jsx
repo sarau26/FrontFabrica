@@ -37,7 +37,7 @@ export const ModificarCurso = () => {
   };
 
   useEffect(() => {
-    cursosCreados();
+    cursosCreados().then(()=>{});
   }, []);
 
   const navigate = useNavigate();
