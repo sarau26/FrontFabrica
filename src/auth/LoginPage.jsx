@@ -11,7 +11,6 @@ export const LoginPage = () => {
     const onSubmitForm = (event) => {
         event.preventDefault();
         onResetForm();
-        console.log(user + password)
     }
 
     return (

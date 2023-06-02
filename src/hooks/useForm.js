@@ -40,6 +40,10 @@ export const useForm = (initialForm = {}) => {
         setformState( initialForm );
     }
 
+    const onUpdateForm = (newValueForm) => {
+        setformState( newValueForm );
+    }
+
 
     return {
         ...formState,
@@ -48,5 +52,6 @@ export const useForm = (initialForm = {}) => {
         onSelectChange,
         handleChexbox,
         onResetForm,
+        onUpdateForm
     }
 }

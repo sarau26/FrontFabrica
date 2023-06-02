@@ -9,7 +9,11 @@ export const MenuJefeDepartamento = () => {
     const SelectMenu = ({ target }) => {
         if (target.name == 'button_cursos') {
             navigate('/menu-jefe-departamento/menu-cursos/agregar')
-        } else {
+        } 
+        else if(target.name == 'button_regresar') {
+            navigate('/')
+        }
+        else {
             navigate('/menu-vicedecano')
         }
     }
@@ -33,6 +37,14 @@ export const MenuJefeDepartamento = () => {
                     name="button_grupos"
                 >
                     Grupos
+                </button>
+
+                <button
+                    className="menu_button"
+                    onClick={SelectMenu}
+                    name="button_regresar"
+                >
+                    Regresar a seleccionar el rol
                 </button>
 
             </div>

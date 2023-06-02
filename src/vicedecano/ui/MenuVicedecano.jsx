@@ -7,10 +7,13 @@ export const MenuVicedecano = () => {
     const navigate = useNavigate();
 
     const SelectMenu = ({ target }) => {
-        if (target.name == 'button_jefe_departamento') {
-            navigate('/menu-jefe-departamento')
-        } else {
-            navigate('/menu-vicedecano')
+        if (target.name == 'button_cursos') {
+            navigate('/menu-vicedecano/menu-cursos')
+        } else if(target.name == 'button_grupos'){
+            navigate('/menu-vicedecano/menu-grupos')
+        }
+         else{
+            navigate('/menu-vicedecano/menu-fechas-semestrales')
         }
     }
 

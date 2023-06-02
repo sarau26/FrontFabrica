@@ -1,11 +1,8 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Swal from 'sweetalert2';
-
-
 import { JefeDepartamentoContext } from "../context/JefeDepartamentoContext";
-import { postCursos } from "../helpers/api";
+import { postCursos } from "../services/cursoService";
 import "./index.css";
 
 
@@ -30,6 +27,10 @@ export const AgregarCurso = () => {
         habilitable,
     } = useContext(JefeDepartamentoContext);
 
+    useEffect(()=>{
+        onResetForm();
+    },[])
+
     const navigate = useNavigate();
 
     const returnMenu = () => {
@@ -38,21 +39,9 @@ export const AgregarCurso = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        if (postCursos(formState)) {
-            postCursos(formState);
-            onResetForm();
-            Swal.fire({
-                icon: 'success',
-                title: `Creación de curso exitosa`,
-                text: `El curso de: ${materia} fue creado`,
-            })
-        } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: `El codigo del curso: ${materia} no es valido`,
-              })
-        }
+        postCursos(formState, materia);
+        onResetForm();
+
     }
 
     return (
@@ -62,12 +51,12 @@ export const AgregarCurso = () => {
                 <div className="form-cursos__div d-flex row">
                     <div className="col-6 d-grid">
                         <label className="form-cursos__div-label"><b>Código de materia: </b></label>
-                        <label className="form-cursos__div-label" for="lang"><b>programaAcademico: </b></label>
-                        <label className="form-cursos__div-label" for="lang"><b>Versión del pensum: </b></label>
-                        <label className="form-cursos__div-label" for="lang"><b>Nivel académico: </b></label>
+                        <label className="form-cursos__div-label"><b>programaAcademico: </b></label>
+                        <label className="form-cursos__div-label"><b>Versión del pensum: </b></label>
+                        <label className="form-cursos__div-label"><b>Nivel académico: </b></label>
                         <label className="form-cursos__div-label"><b>Creditos académicos: </b></label>
                         <label className="form-cursos__div-label"><b>Intensidad horaria: </b></label>
-                        <label className="form-cursos__div-label" for="lang"><b>Sede: </b></label>
+                        <label className="form-cursos__div-label"><b>Sede: </b></label>
                         <label className="form-cursos__div-label"><b>Admite grupos espejos: </b></label>
                         <label className="form-cursos__div-label"><b>Validable: </b></label>
                         <label className="form-cursos__div-label"><b>Obligatorio: </b></label>
@@ -81,48 +70,50 @@ export const AgregarCurso = () => {
                                 type="number"
                                 name="materia"
                                 value={materia}
+                                min={0}
                                 onChange={onInputChange}
-                                required="true"
+                                required={true}
                             />
                         </div>
 
                         <div className="form-cursos__div-inner">
 
-                            <select name="programaAcademico" value={programaAcademico} onChange={onInputChange} required="true">
-                                <option name="programaAcademico" value="" selected></option>
-                                <option name="programaAcademico" value="Ing Sistemas">Ingeniería Sistemas</option>
-                                <option name="programaAcademico" value="Ing Electronica">Ingeniería Electronica</option>
-                                <option name="programaAcademico" value="Ing Electrica">Ingeniería Electrica</option>
-                                <option name="programaAcademico" value="Ing Industrial">Ingeniería Industrial</option>
+                            <select name="programaAcademico" value={programaAcademico} onChange={onInputChange} required={true}>
+                                <option name="programaAcademicoNull" value=""></option>
+                                <option name="programaAcademicoIngSistemas" value="Ing Sistemas">Ingeniería Sistemas</option>
+                                <option name="programaAcademicoIngElectronica" value="Ing Electronica">Ingeniería Electronica</option>
+                                <option name="programaAcademicoIngElectrica" value="Ing Electrica">Ingeniería Electrica</option>
+                                <option name="programaAcademicoIngIndustrial" value="Ing Industrial">Ingeniería Industrial</option>
+                                <option name="programaAcademicoIngCivil" value="Ing Civil">Ingeniería Civil</option>
                             </select>
                         </div>
 
                         <div className="form-cursos__div-inner">
 
-                            <select name="versionPensum" value={versionPensum} onChange={(e) => onSelectChange(e, true)} required="true">
-                                <option name="" selected></option>
-                                <option name="3">1</option>
-                                <option name="3">2</option>
-                                <option name="3">3</option>
-                                <option name="4">4</option>
-                                <option name="5">5</option>
+                            <select name="versionPensum" value={versionPensum}onChange={(e) => onSelectChange(e, true)} required={true}>
+                                <option value=""></option>
+                                <option value="3">1</option>
+                                <option value="3">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
 
                         <div className="form-cursos__div-inner">
 
-                            <select name="nivelAcademico" value={nivelAcademico} onChange={(e) => onSelectChange(e, true)} required="true">
-                                <option name="" selected></option>
-                                <option name="1">1</option>
-                                <option name="2">2</option>
-                                <option name="3">3</option>
-                                <option name="4">4</option>
-                                <option name="5">5</option>
-                                <option name="6">6</option>
-                                <option name="7">7</option>
-                                <option name="8">8</option>
-                                <option name="9">9</option>
-                                <option name="10">10</option>
+                            <select name="nivelAcademico" value={nivelAcademico} onChange={(e) => onSelectChange(e, true)} required={true}>
+                                <option value=""></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
                             </select>
                         </div>
 
@@ -133,8 +124,9 @@ export const AgregarCurso = () => {
                                 type="number"
                                 name="creditos"
                                 value={creditos}
+                                min={0}
                                 onChange={onInputChange}
-                                required="true"
+                                required={true}
                             />
                         </div>
 
@@ -145,19 +137,20 @@ export const AgregarCurso = () => {
                                 className=""
                                 type="number"
                                 name="intensidadHoraria"
+                                min={0}
                                 value={intensidadHoraria}
                                 onChange={onInputChange}
-                                required="true"
+                                required={true}
                             />
                         </div>
 
                         <div className="form-cursos__div-inner">
 
-                            <select name="sede" value={sede} onChange={onInputChange} required="true">
-                                <option name="" selected></option>
-                                <option name="Ciudadela Universitaria">Ciudadela Universitaria</option>
-                                <option name="Cede Robledo">Sede Robledo</option>
-                                <option name="Virtual">Virtual</option>
+                            <select name="sede" value={sede} onChange={onInputChange} required={true}>
+                                <option value=""></option>
+                                <option value="Ciudadela Universitaria">Ciudadela Universitaria</option>
+                                <option value="Sede Robledo">Sede Robledo</option>
+                                <option value="Virtual">Virtual</option>
                             </select>
                         </div>
 
@@ -207,8 +200,8 @@ export const AgregarCurso = () => {
 
                     </div>
                 </div>
-
-                <div className="d-flex justify-content-between">
+            </form>
+            <div className="d-flex justify-content-between">
                     <button
                         className="form_button"
                         onClick={returnMenu}
@@ -219,12 +212,6 @@ export const AgregarCurso = () => {
                     /* onClick={onSubmitForm} */
                     >Crear Curso</button>
                 </div>
-
-            </form>
-
-
         </>
-
-
     )
 }

@@ -1,20 +1,23 @@
 .form-cursos {
-    width: 40rem;
+    width: 65rem;
     display: grid;
-    justify-content: left;
     border: 2px solid var(--main-color);
     padding: 30px 40px 30px 40px;
-    height: 35rem;
 }
 
+
 .form-curso-delete {
-    width: 40rem;
+    width: 65rem;
     border: 2px solid var(--main-color);
     padding: 30px 40px 30px 40px;
     height: 35rem;
+    width: 50rem;
+    display: grid;
+    justify-content: left;
 }
 
 .form-cursos__div-label {
+
     color: var(--main-color);
     height: 3rem;
 }
@@ -36,4 +39,42 @@
 
 .mycheck:active {
     background-color: green;
+}
+
+.form-button {
+    margin-top: 24rem;
+}
+
+.div-cursos-creados {
+    width: 60rem;
+    display: grid;
+    border: 2px solid var(--main-color);
+    padding: 30px 40px 30px 40px;
+    height: 18rem;
+    margin: 10px;
+}
+
+.div-cursos-creados__label {
+    color: var(--main-color);
+    height: 1rem;
+
+}
+
+.div-cursos-creados__row {
+    background: #4cb236;
+}
+
+.div-cursos-creados__div {
+    height: 2rem;
+}
+
+.container-cursos-creados {
+    height: 35em;
+    line-height: 1em;
+    border: 2px solid var(--main-color);
+    padding: 30px 40px 30px 40px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 65rem;
+    
 }
