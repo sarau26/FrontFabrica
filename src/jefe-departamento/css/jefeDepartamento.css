@@ -1,0 +1,79 @@
+.div_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.div_menu_buttons {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    width: 45rem;
+    border: 2px solid var(--main-color);
+    padding: 80px 30px 80px 30px;
+}
+
+.menu_button {
+    background: var(--main-color);
+    border: none;
+    padding: 10px;
+    color: #fff;
+    height: 50px;
+    margin-top: 3%;
+    border-radius: 6px;
+}
+
+.menu_button:hover {
+    background: var(--hover-color)
+}
+
+.gestion-cursos {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.gestion-cursos__contenido {
+    display: grid;
+    justify-content: left;
+    width: 45rem;
+    border: 2px solid var(--main-color);
+    padding: 50px 40px 50px 40px;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar__link {
+    background-color: var(--hover-color);
+    width: 8rem;
+    margin-right: 5px;
+    border-radius: 5px 5px 0px 0px;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#root > div > nav > div > a:nth-child(1) {
+    color: #ffffff;
+}
+
+#root > div > nav > div > a:nth-child(2) {
+    color: #ffffff;
+}
+
+#root > div > nav > div > a:nth-child(3) {
+    color: #ffffff;
+}
+
+#root > div > nav > div > a:nth-child(4) {
+    color: #ffffff;
+}
+
+
+.active {
+    background-color: var(--main-color);
+}
+

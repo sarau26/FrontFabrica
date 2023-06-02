@@ -1,0 +1,72 @@
+
+.hu1 h1{
+  font-size: 20px;
+}
+.hu1 .navbar {
+  padding: 0;
+  color: #ffffff;
+}
+.hu1 .nav-item{
+  color: #ffffff;
+}
+.hu1 .navbar__link {
+  background-color: var(--secondary-color);
+  width: 8rem;
+  margin-right: 5px;
+  border-radius: 5px 5px 0px 0px;
+  text-align: center;
+
+}
+
+.hu1 .navbar a:hover {
+  color: #181818;
+  background-color: var(--hover-color);
+}
+
+.hu1 .navbar .active {
+  color: #ffffff;
+  background-color: var(--main-color);
+}
+
+
+.hu1 .routes{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.hu1 .picker{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  padding: 10px 0px;
+  margin: 0px 50px;
+
+}
+
+.hu1 .container{
+  border: 2px solid var(--main-color);
+  padding: 30px 30px 50px 40px;
+  height: 40rem;
+}
+
+.hu1 .title{
+  width: 300px;
+}
+
+.hu1 .react-datepicker-wrapper{
+  
+  width: 150px;
+  margin: 0px 30px;
+}
+
+.hu1 .react-datepicker__input-container input{
+  text-align: center;
+  border-radius: 3px;
+  border: solid 1px #afafaf;
+  background-color: #d1d1d1;
+  width: 150px;
+  height: 25px;
+}
